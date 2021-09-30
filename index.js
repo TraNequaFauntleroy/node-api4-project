@@ -1,33 +1,37 @@
 require('dotenv').config()
-const path = require('path')
 const cors = require('cors')
 const express = require('express')
-const exp = require('constants')
 
 const server = express()
 
 server.use(express.json())
 server.use(cors())
-server.use(express.static(
-    path.join(__dirname, 'client/build')
-))
+
 
 server.get('/api/users', (req, res) => {
-
+    res.status(200).json({
+        message: "way to go!"
+    })
 })
 
 server.post('/api/register', (req, res) => {
-    
+    res.status(201).json({
+        message: "Yayyy!"
+    })
 })
 
 server.post('/api/login', (req, res) => {
+    res.status(400).json({
+        message: "Booo You cannot be here!"
+    })
     
 })
 
 server.get('*', (req, res) => {
-    res.sendFile(
-        path.join(__dirname, 'client/build, index.html')
-    )
+    res.status(404).json({
+        message: "something went wrong"
+    })
+    
 })
 
 const port = process.env.PORT || 3000
