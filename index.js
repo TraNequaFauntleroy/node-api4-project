@@ -9,22 +9,17 @@ server.use(cors())
 
 
 server.get('/api/users', (req, res) => {
-    res.status(200).json({
-        message: "way to go!"
-    })
+    res.send('<h1>List of Users</h1>')
 })
 
 server.post('/api/register', (req, res) => {
-    res.status(201).json({
-        message: "Yayyy!"
-    })
+    res.send('<h1>Here is where you would register for an account</h1>')
+
 })
 
 server.post('/api/login', (req, res) => {
-    res.status(400).json({
-        message: "Booo You cannot be here!"
-    })
-    
+    res.send('<h1>Login Page</h1>')
+
 })
 
 server.get('*', (req, res) => {
